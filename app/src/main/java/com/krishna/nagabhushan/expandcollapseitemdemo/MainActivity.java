@@ -13,8 +13,6 @@ import com.krishna.nagabhushan.widgets.ExpandCollapseItem;
 
 import java.util.ArrayList;
 
-import static com.krishna.nagabhushan.expandcollapseitemdemo.R.id.checkBox;
-
 public class MainActivity extends Activity
 {
 	
@@ -33,14 +31,14 @@ public class MainActivity extends Activity
 		// Group1 - No Child Items
 		ExpandCollapseItem item1 = (ExpandCollapseItem) findViewById(R.id.item1);
 		LinearLayout item1Layout = (LinearLayout) inflater.inflate(R.layout.layout_group_title, null);
-		final CheckBox item1CheckBox = (CheckBox) item1Layout.findViewById(checkBox);
+		final CheckBox item1CheckBox = (CheckBox) item1Layout.findViewById(R.id.checkBox);
 		item1CheckBox.setText("Group Item 1");
 		item1.setViews(item1Layout, null);
 		
 		// Group2 - With Child Items
 		ExpandCollapseItem item2 = (ExpandCollapseItem) findViewById(R.id.item2);
 		LinearLayout item2Layout = (LinearLayout) inflater.inflate(R.layout.layout_group_title, null);
-		final CheckBox item2CheckBox = (CheckBox) item2Layout.findViewById(checkBox);
+		final CheckBox item2CheckBox = (CheckBox) item2Layout.findViewById(R.id.checkBox);
 		item2CheckBox.setText("Group Item 2");
 		final String[] item2ChildNames = {"Child Item 21", "Child Item 22", "Child Item 23", "Child Item 24", "Child Item 25"};
 		ArrayList<View> item2ChildLayouts = new ArrayList<View>(item2ChildNames.length);
@@ -48,7 +46,7 @@ public class MainActivity extends Activity
 		for (String childName : item2ChildNames)
 		{
 			LinearLayout childLayout = (LinearLayout) inflater.inflate(R.layout.layout_group_child, null);
-			CheckBox childCheckBox = (CheckBox) childLayout.findViewById(checkBox);
+			CheckBox childCheckBox = (CheckBox) childLayout.findViewById(R.id.checkBox);
 			childCheckBox.setText(childName);
 			item2ChildCheckBoxes.add(childCheckBox);
 			item2ChildLayouts.add(childLayout);
@@ -62,17 +60,17 @@ public class MainActivity extends Activity
 			public void onClick(View v)
 			{
 				String showText = "Following CheckBoxes have beeen selected\n";
-				if(item1CheckBox.isChecked())
+				if (item1CheckBox.isChecked())
 				{
 					showText += "Group Item 1\n";
 				}
-				if(item2CheckBox.isChecked())
+				if (item2CheckBox.isChecked())
 				{
 					showText += "Group Item 2\n";
 				}
-				for(int i=0; i<item2ChildCheckBoxes.size(); i++)
+				for (int i = 0; i < item2ChildCheckBoxes.size(); i++)
 				{
-					if(item2ChildCheckBoxes.get(i).isChecked())
+					if (item2ChildCheckBoxes.get(i).isChecked())
 					{
 						showText += item2ChildNames[i] + "\n";
 					}
